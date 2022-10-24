@@ -21,6 +21,7 @@ var webInspectorCmd = &cobra.Command{
 		go func() {
 			select {
 			case <-done:
+				fmt.Println("webinspector force quit!")
 				cancel()
 				os.Exit(0)
 			}
