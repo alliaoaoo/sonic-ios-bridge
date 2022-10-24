@@ -20,8 +20,9 @@ var webInspectorCmd = &cobra.Command{
 		fmt.Println("service started successfully")
 		go func() {
 			select {
-			case <-done:
+			case s := <-done:
 				fmt.Println("webinspector force quit!")
+				fmt.Println("exit event:", s)
 				cancel()
 				os.Exit(0)
 			}
